@@ -23,6 +23,45 @@ if (!$action) {
 
 
 switch ($action) {
+    case "list_categories":
+        $categories = getCategories();
+        include('view/category_list.php');
+        break;
+    case "add_category":
+        addCategory($categoryName);
+        header("Location: .?action=list_categories");
+        break;
+    case "add_job":
+        if ($categoryId && $description) {
+            addJob($categoryId, $description);
+            header("Location: .?category_id=$categoryId");
+        } else {
+            $error = "Invalid job data.";
+            include('view/error.php');
+            exit();
+        }
+        break;
+    case "delete_category":
+        if ($categoryId) {
+            try {
+                deleteCategory($categoryId);
+            } catch (PDOException $e) {
+                $error = "Error deleting category. Ensure this category has no jobs attached to it.";
+                include('view/error.php');
+                exit();
+            }
+            header("Location: .?action=list_categories");
+        }
+        break;
+    case "delete_job":
+        if ($jobId) {
+            deleteJob($jobId);
+            header("Location: .?category_id=$categoryId");
+        } else {
+            $error = "None, or non existent job ID.";
+            include('view/error.php');
+        }
+        break;
     default:
         $categoryName = getCategoryName($categoryId);
         $categories = getCategories();
