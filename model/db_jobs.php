@@ -6,7 +6,7 @@ function getJobsByCategory($categoryId)
     if ($categoryId) {
         $query = 'SELECT j.JobID, j.Description, c.CategoryName FROM job j 
             LEFT JOIN category c ON j.FKCategoryID = c.CategoryID 
-            WHERE j.JobID = :categoryId 
+            WHERE j.FKCategoryID = :categoryId 
             ORDER BY j.JobID';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':categoryId', $categoryId);
