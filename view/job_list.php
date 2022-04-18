@@ -6,7 +6,7 @@
         <form action="." method="get" id="list__header_select" class="list__header_select">
             <input type="hidden" name="action" value="list_jobs">
 
-            <select name="category_id" required>
+            <select name="categoryId" required>
                 <option value="0">View All </option>
                 <?php foreach ($categories as $category) : ?>
                     <?php if ($categoryId == $category['CategoryID']) { ?>
@@ -26,13 +26,13 @@
         <?php foreach ($jobs as $job) : ?>
             <div class="list__row">
                 <div class="list__item">
-                    <p class="bold"><?= $job['categoryName'] ?></p>
+                    <p class="bold"><?= $job['CategoryName'] ?></p>
                     <p><?= $job['Description'] ?></p>
                 </div>
                 <div class="list__remove_item">
                     <form action="." method="post">
                         <input type="hidden" name="action" value="delete_job">
-                        <input type="hidden" name="job_id" value="<?= $job['JobID'] ?>">
+                        <input type="hidden" name="jobId" value="<?= $job['JobID'] ?>">
                         <button class="remove-button">Del</button>
                     </form>
                 </div>
@@ -58,7 +58,7 @@
         <input type="hidden" name="action" value="add_job">
         <div class="add__inputs">
             <label>Category: </label>
-            <select name="category_id" required>
+            <select name="categoryId" required>
                 <option value="">Select Category</option>
                 <?php foreach ($categories as $category) : ?>
                     <option value="<?= $category['CategoryID']; ?>">

@@ -15,7 +15,7 @@
                 <div class="list__removeItem">
                     <form action="." method="post">
                         <input type="hidden" name="action" value="delete_category">
-                        <input type="hidden" name="category_id" value="<?= $category['CategoryID'] ?>">
+                        <input type="hidden" name="categoryId" value="<?= $category['CategoryID'] ?>">
                         <button class="remove-button">Delete</button>
                     </form>
                 </div>
@@ -32,7 +32,7 @@
         <input type="hidden" name="action" value="add_category">
         <div class="add__inputs">
             <label>Name:</label>
-            <input type="text" name="category_name" maxlength="120" placeholder="Name" autofocus required>
+            <input type="text" name="categoryName" maxlength="120" placeholder="Name" autofocus required>
         </div>
         <div class="add__addItem">
             <button class="add-button bold">Add</button>
