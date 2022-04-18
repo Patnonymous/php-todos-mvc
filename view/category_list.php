@@ -31,10 +31,17 @@
     <form action="." method="post" id="add__form" class="add__form">
         <input type="hidden" name="action" value="add_category">
         <div class="add__inputs">
-            <label></label>
+            <label>Name:</label>
+            <input type="text" name="category_name" maxlength="120" placeholder="Name" autofocus required>
+        </div>
+        <div class="add__addItem">
+            <button class="add-button bold">Add</button>
         </div>
     </form>
 </section>
+
+<br>
+<p><a href=".">View &amp; Add Jobs</a></p>
 
 
 <?php include('view/footer.php'); ?>
